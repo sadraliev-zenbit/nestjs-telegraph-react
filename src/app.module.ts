@@ -11,14 +11,12 @@ import { TelegrafModule } from 'nestjs-telegraf';
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         token: configService.get<string>('TELEGRAM_BOT_TOKEN'),
-        /**
-         * webhook setting
-         *
-         * webhook: {
-         *    domain: configService.get<string>('WEBHOOK_URL'),
-         *    hookPath: configService.get<string>('SECRET_PATH'),
-         * },
-         */
+        launchOptions: {
+          webhook: {
+            domain: configService.get<string>('WEBHOOK_URL'),
+            hookPath: configService.get<string>('SECRET_PATH'),
+          },
+        },
       }),
     }),
     EchoModule,

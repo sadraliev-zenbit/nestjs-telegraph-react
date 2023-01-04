@@ -7,9 +7,9 @@ async function bootstrap() {
 
   /**
    * webhook setting
-   * const bot = app.get(getBotToken());
-   * app.use(bot.webhookCallback('/secret-path'));
    */
+  const bot = app.get(getBotToken());
+  app.use(bot.webhookCallback());
 
   await app.listen(process.env.PORT || 3000);
 }
