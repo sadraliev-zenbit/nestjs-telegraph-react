@@ -1,12 +1,12 @@
 import { TelegrafContext } from '@interfaces/context.interface';
 import {
   Help,
-  On,
   Start,
   Update,
   Ctx,
   InjectBot,
   Message,
+  Hears,
 } from 'nestjs-telegraf';
 import { ReverseTextPipe } from 'src/common/pipes/reverse-text.pipe';
 import { Telegraf } from 'telegraf';
@@ -28,7 +28,7 @@ export class EchoUpdate {
   async help(@Ctx() ctx: TelegrafContext) {
     await ctx.reply('Send me a sticker');
   }
-  @On('text')
+  @Hears('text')
   onMessage(@Message('text', new ReverseTextPipe()) reversedText: string) {
     return this.echoService.echo(reversedText);
   }
