@@ -1,4 +1,4 @@
-# Simple Telegram Bot
+# Telegram WebApp boilerplate
 
 ## Install Nest.JS, Telegraf.JS and Ngrok
 
